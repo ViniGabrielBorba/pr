@@ -1,0 +1,801 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(-2px);
+}
+
+.message-container {
+    margin-top: 40px;
+    animation: fadeIn 1s ease-in;
+}
+
+.message-container.hidden {
+    display: none;
+}
+
+.message {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: slideDown 1s ease-out;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* Girasol */
+.sunflower-container {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInScale 1.5s ease-out;
+}
+
+.sunflower {
+    position: relative;
+    width: 280px;
+    height: 400px;
+    transform-origin: bottom center;
+    animation: sway 2.5s ease-in-out infinite;
+}
+
+.center {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at 30% 30%, #654321 0%, #8B4513 40%, #5C4033 100%);
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 
+        inset 0 0 30px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(139, 69, 19, 0.4);
+    border: 2px solid rgba(101, 67, 33, 0.8);
+}
+
+.petal {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    width: 50px;
+    height: 120px;
+    background: linear-gradient(135deg, 
+        #FFEB3B 0%, 
+        #FFD700 30%, 
+        #FFC107 60%, 
+        #FFA500 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    transform-origin: 50% 100%;
+    box-shadow: 
+        0 4px 15px rgba(255, 193, 7, 0.4),
+        inset 0 -10px 20px rgba(255, 165, 0, 0.3);
+    border: 1px solid rgba(255, 193, 7, 0.5);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.petal:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+    border-radius: 50% 50% 0 0;
+}
+
+.petal-1 { transform: translateX(-50%) rotate(0deg); }
+.petal-2 { transform: translateX(-50%) rotate(20deg); }
+.petal-3 { transform: translateX(-50%) rotate(40deg); }
+.petal-4 { transform: translateX(-50%) rotate(60deg); }
+.petal-5 { transform: translateX(-50%) rotate(80deg); }
+.petal-6 { transform: translateX(-50%) rotate(100deg); }
+.petal-7 { transform: translateX(-50%) rotate(120deg); }
+.petal-8 { transform: translateX(-50%) rotate(140deg); }
+.petal-9 { transform: translateX(-50%) rotate(160deg); }
+.petal-10 { transform: translateX(-50%) rotate(180deg); }
+.petal-11 { transform: translateX(-50%) rotate(200deg); }
+.petal-12 { transform: translateX(-50%) rotate(220deg); }
+.petal-13 { transform: translateX(-50%) rotate(240deg); }
+.petal-14 { transform: translateX(-50%) rotate(260deg); }
+.petal-15 { transform: translateX(-50%) rotate(280deg); }
+.petal-16 { transform: translateX(-50%) rotate(300deg); }
+.petal-17 { transform: translateX(-50%) rotate(320deg); }
+.petal-18 { transform: translateX(-50%) rotate(340deg); }
+
+.stem {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25px;
+    height: 220px;
+    background: linear-gradient(90deg, 
+        #2d5016 0%, 
+        #3d7a1f 25%, 
+        #4a9a28 50%, 
+        #3d7a1f 75%, 
+        #2d5016 100%);
+    border-radius: 12px;
+    z-index: 1;
+    transform-origin: bottom center;
+    animation: stemSway 2.5s ease-in-out infinite;
+    box-shadow: 
+        inset -3px 0 5px rgba(0, 0, 0, 0.3),
+        inset 3px 0 5px rgba(255, 255, 255, 0.1);
+    border-left: 2px solid rgba(45, 80, 22, 0.8);
+    border-right: 2px solid rgba(74, 154, 40, 0.5);
+}
+
+.leaf {
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    background: linear-gradient(135deg, 
+        #2d5016 0%, 
+        #3d7a1f 30%, 
+        #4a9a28 70%, 
+        #228B22 100%);
+    border-radius: 0 100% 0 100%;
+    z-index: 2;
+    transform-origin: center;
+    animation: leafSway 2.5s ease-in-out infinite;
+    box-shadow: 
+        0 2px 8px rgba(0, 0, 0, 0.3),
+        inset 0 0 10px rgba(74, 154, 40, 0.3);
+    border: 1px solid rgba(45, 80, 22, 0.6);
+}
+
+.leaf:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(45, 80, 22, 0.5) 50%, 
+        transparent 100%);
+    transform: translateY(-50%);
+}
+
+.leaf-1 {
+    top: 250px;
+    left: 25%;
+    transform: rotate(-50deg);
+    animation-delay: 0.1s;
+}
+
+.leaf-2 {
+    top: 280px;
+    right: 25%;
+    transform: rotate(50deg);
+    animation-delay: 0.2s;
+}
+
+.leaf-3 {
+    top: 320px;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    animation-delay: 0.15s;
+}
+
+/* Paisagem de Praia */
+.beach-container {
+    flex: 1;
+    min-width: 400px;
+    max-width: 600px;
+    height: 400px;
+    animation: fadeInScale 1.5s ease-out 0.3s both;
+}
+
+.beach-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to bottom, #4A90E2 0%, #87CEEB 50%, #E0F6FF 100%);
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    opacity: 0.9;
+    animation: cloudMove 20s linear infinite;
+}
+
+.cloud:before,
+.cloud:after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+}
+
+.cloud-1 {
+    width: 80px;
+    height: 40px;
+    top: 30px;
+    left: 10%;
+    animation-duration: 25s;
+}
+
+.cloud-1:before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 10px;
+}
+
+.cloud-1:after {
+    width: 60px;
+    height: 40px;
+    top: -15px;
+    right: 10px;
+}
+
+.cloud-2 {
+    width: 100px;
+    height: 50px;
+    top: 50px;
+    left: 50%;
+    animation-duration: 30s;
+    animation-delay: -5s;
+}
+
+.cloud-2:before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 15px;
+}
+
+.cloud-2:after {
+    width: 70px;
+    height: 50px;
+    top: -20px;
+    right: 15px;
+}
+
+.cloud-3 {
+    width: 70px;
+    height: 35px;
+    top: 20px;
+    right: 15%;
+    animation-duration: 35s;
+    animation-delay: -10s;
+}
+
+.cloud-3:before {
+    width: 45px;
+    height: 45px;
+    top: -20px;
+    left: 10px;
+}
+
+.cloud-3:after {
+    width: 55px;
+    height: 35px;
+    top: -10px;
+    right: 10px;
+}
+
+.sun {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #FFEB3B 0%, #FFD700 50%, #FFA500 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.8), 0 0 100px rgba(255, 165, 0, 0.4);
+    animation: sunGlow 4s ease-in-out infinite;
+    z-index: 2;
+}
+
+.sun-reflection {
+    position: absolute;
+    bottom: 30%;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 215, 0, 0.3) 0%, 
+        rgba(255, 165, 0, 0.2) 50%, 
+        transparent 100%);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+    animation: reflectionShimmer 3s ease-in-out infinite;
+}
+
+.ocean {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to bottom, 
+        #00BFFF 0%, 
+        #1E90FF 30%, 
+        #0066CC 70%, 
+        #003366 100%);
+    overflow: hidden;
+}
+
+.ocean-depth {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 50px,
+            rgba(255, 255, 255, 0.05) 50px,
+            rgba(255, 255, 255, 0.05) 52px
+        );
+    animation: depthMove 8s linear infinite;
+}
+
+.beach {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    background: linear-gradient(to bottom, 
+        #F5DEB3 0%, 
+        #F4A460 50%, 
+        #DEB887 100%);
+    border-top: 4px solid #D2B48C;
+}
+
+.beach-texture {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(139, 69, 19, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 60% 80%, rgba(160, 82, 45, 0.1) 1px, transparent 1px),
+        radial-gradient(circle at 80% 30%, rgba(139, 69, 19, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px, 40px 40px, 25px 25px;
+}
+
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    animation: waveMove 3s ease-in-out infinite;
+}
+
+.wave-1 {
+    bottom: 25%;
+    animation-delay: 0s;
+    opacity: 0.7;
+    height: 35px;
+}
+
+.wave-2 {
+    bottom: 28%;
+    animation-delay: 0.4s;
+    opacity: 0.5;
+    height: 25px;
+}
+
+.wave-3 {
+    bottom: 32%;
+    animation-delay: 0.8s;
+    opacity: 0.4;
+    height: 20px;
+}
+
+.wave-4 {
+    bottom: 36%;
+    animation-delay: 1.2s;
+    opacity: 0.3;
+    height: 15px;
+}
+
+.foam {
+    position: absolute;
+    bottom: 25%;
+    width: 15px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    animation: foamFloat 4s ease-in-out infinite;
+}
+
+.foam-1 {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.foam-2 {
+    left: 50%;
+    animation-delay: 1s;
+    width: 12px;
+    height: 12px;
+}
+
+.foam-3 {
+    left: 75%;
+    animation-delay: 2s;
+    width: 10px;
+    height: 10px;
+}
+
+.palm-tree {
+    position: absolute;
+    bottom: 25%;
+    left: 20%;
+    z-index: 5;
+}
+
+.trunk {
+    width: 20px;
+    height: 120px;
+    background: linear-gradient(to right, #8B4513 0%, #A0522D 100%);
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.frond {
+    position: absolute;
+    top: -20px;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #228B22 0%, #32CD32 100%);
+    border-radius: 50%;
+    transform-origin: left center;
+    animation: frondSway 3s ease-in-out infinite;
+}
+
+.frond-1 {
+    transform: rotate(-40deg);
+    left: 10px;
+    animation-delay: 0s;
+    animation-name: frondSway1;
+}
+
+.frond-2 {
+    transform: rotate(-15deg);
+    left: 10px;
+    animation-delay: 0.2s;
+    animation-name: frondSway2;
+}
+
+.frond-3 {
+    transform: rotate(15deg);
+    left: 10px;
+    animation-delay: 0.4s;
+    animation-name: frondSway3;
+}
+
+.frond-4 {
+    transform: rotate(40deg);
+    left: 10px;
+    animation-delay: 0.6s;
+    animation-name: frondSway4;
+}
+
+.seagull {
+    position: absolute;
+    width: 30px;
+    height: 20px;
+    top: 15%;
+    animation: seagullFly 15s linear infinite;
+}
+
+.seagull:before,
+.seagull:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 8px solid white;
+}
+
+.seagull:before {
+    left: 0;
+    transform: rotate(-20deg);
+}
+
+.seagull:after {
+    right: 0;
+    transform: rotate(20deg);
+}
+
+.seagull-1 {
+    left: -50px;
+    animation-delay: 0s;
+    top: 20%;
+}
+
+.seagull-2 {
+    left: -50px;
+    animation-delay: 3s;
+    top: 25%;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: rotate(-8deg) translateX(0);
+    }
+    25% {
+        transform: rotate(-4deg) translateX(2px);
+    }
+    50% {
+        transform: rotate(8deg) translateX(0);
+    }
+    75% {
+        transform: rotate(4deg) translateX(-2px);
+    }
+}
+
+@keyframes stemSway {
+    0%, 100% {
+        transform: translateX(-50%) rotate(-5deg);
+    }
+    25% {
+        transform: translateX(-50%) rotate(-2deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(5deg);
+    }
+    75% {
+        transform: translateX(-50%) rotate(2deg);
+    }
+}
+
+@keyframes leafSway {
+    0%, 100% {
+        transform: rotate(-45deg) scale(1);
+    }
+    50% {
+        transform: rotate(-35deg) scale(1.05);
+    }
+}
+
+@keyframes sunGlow {
+    0%, 100% {
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 60px rgba(255, 215, 0, 0.9);
+    }
+}
+
+@keyframes waveMove {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-25%) translateY(-5px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes foamFloat {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.9;
+    }
+    25% {
+        transform: translateY(-10px) translateX(5px);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-5px) translateX(10px);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translateY(-15px) translateX(5px);
+        opacity: 0.6;
+    }
+}
+
+@keyframes cloudMove {
+    0% {
+        transform: translateX(-100px);
+    }
+    100% {
+        transform: translateX(calc(100vw + 100px));
+    }
+}
+
+@keyframes depthMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(50px);
+    }
+}
+
+@keyframes reflectionShimmer {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes frondSway1 {
+    0%, 100% {
+        transform: rotate(-40deg) translateX(0);
+    }
+    50% {
+        transform: rotate(-35deg) translateX(2px);
+    }
+}
+
+@keyframes frondSway2 {
+    0%, 100% {
+        transform: rotate(-15deg) translateX(0);
+    }
+    50% {
+        transform: rotate(-10deg) translateX(2px);
+    }
+}
+
+@keyframes frondSway3 {
+    0%, 100% {
+        transform: rotate(15deg) translateX(0);
+    }
+    50% {
+        transform: rotate(20deg) translateX(2px);
+    }
+}
+
+@keyframes frondSway4 {
+    0%, 100% {
+        transform: rotate(40deg) translateX(0);
+    }
+    50% {
+        transform: rotate(45deg) translateX(2px);
+    }
+}
+
+@keyframes seagullFly {
+    0% {
+        left: -50px;
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(10px);
+    }
+    100% {
+        left: calc(100% + 50px);
+        transform: translateY(0);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .message {
+        font-size: 24px;
+    }
+    
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .beach-container {
+        min-width: 100%;
+        height: 300px;
+    }
+}
+
